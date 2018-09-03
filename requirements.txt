@@ -1,5 +1,7 @@
 certifi==2018.8.24
 Django==1.11
 djangorestframework==3.8.2
+djangorestframework-jwt==1.11.0
+PyJWT==1.6.4
 pytz==2018.5
 wincertstore==0.2

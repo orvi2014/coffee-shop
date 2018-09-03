@@ -8,7 +8,7 @@ from rest_framework.test import APITestCase
 
 
 class UserRegistrationAPIViewTestCase(APITestCase):
-    url = reverse("users:list")
+    url = reverse("users")
 
     def test_invalid_password(self):
         """

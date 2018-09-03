@@ -1,3 +1,4 @@
+# reference= http://www.django-rest-framework.org/api-guide/fields/
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.generics import CreateAPIView, GenericAPIView
@@ -10,6 +11,11 @@ class UserRegistrationAPIView(CreateAPIView):
     authentication_classes = ()
     permission_classes = ()
     serializer_class = UserRegistrationSerializer
+    # save password into hash
+    def perform_create(self, serializer):
+        instance = serializer.save()
+        instance.set_password(instance.password)
+        instance.save()
 
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
