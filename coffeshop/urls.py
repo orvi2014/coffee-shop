@@ -17,7 +17,7 @@ from django.conf.urls import url,include
 from django.contrib import admin
 
 api_urls = [
-    url(r'^orders/', include('order.urls', namespace='todos')),
+    url(r'^order/', include('order.urls', namespace='order')),
     url(r'^users/', include('users.urls', namespace='users')),
 ]
 

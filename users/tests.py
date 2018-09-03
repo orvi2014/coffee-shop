@@ -8,7 +8,7 @@ from rest_framework.test import APITestCase
 
 
 class UserRegistrationAPIViewTestCase(APITestCase):
-    url = reverse("users")
+    url = reverse("users:registration")
 
     def test_invalid_password(self):
         """
@@ -64,17 +64,17 @@ class UserLoginAPIViewTestCase(APITestCase):
     url = reverse("users:login")
 
     def setUp(self):
-        self.username = "john"
-        self.email = "john@snow.com"
+        self.username = "orvi"
+        self.email = "orvi@taaal.com"
         self.password = "you_know_nothing"
         self.user = User.objects.create_user(self.username, self.email, self.password)
 
     def test_authentication_without_password(self):
-        response = self.client.post(self.url, {"username": "snowman"})
+        response = self.client.post(self.url, {"username": "yappy"})
         self.assertEqual(400, response.status_code)
 
     def test_authentication_with_wrong_password(self):
-        response = self.client.post(self.url, {"username": self.username, "password": "I_know"})
+        response = self.client.post(self.url, {"username": self.username, "password": "whocares"})
         self.assertEqual(400, response.status_code)
 
     def test_authentication_with_valid_data(self):
@@ -87,9 +87,9 @@ class UserLogoutAPIViewTestCase(APITestCase):
     url = reverse("users:logout")
 
     def setUp(self):
-        self.username = "john"
-        self.email = "john@snow.com"
-        self.password = "you_know_nothing"
+        self.username = "hey"
+        self.email = "bore@resr.com"
+        self.password = "true_you_know_nothing"
         self.user = User.objects.create_user(self.username, self.email, self.password)
         self.token = Token.objects.create(user=self.user)
         self.api_authentication()
