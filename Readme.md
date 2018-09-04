@@ -9,11 +9,7 @@ You need some Prerequisites First to run this application
 ### Prerequisites
 
 ```
-pip
-Python3.6+
-VirtualEnv
-Django1.11
-DRF
+pip, python3.6+, virtualenv, Django1.11, DRF
 ```
 
 ### Installing
@@ -26,10 +22,12 @@ First, we will create a virturalenv in our local machine. Name it `venv`
 Virtualenv venv
 ```
 Next, cd in it : `cd venv`
+
 Activate your venv.
 
-For Linux `source activate venv`
-For Windows `venv\Scripts\activate`
+For Linux, `source activate venv`
+
+For Windows, `venv\Scripts\activate`
 
 Clone this app using `git clone url coffeeshop`
 go to the directory `cd coffeshop`
@@ -47,7 +45,7 @@ Now run the application `python manage.py runserver`
 
 You can use it from docker too.
 
-You have to install docker in your local machine first.
+You have to install docker in your local machine.
 
 First clone the repo and cd it.
 
@@ -55,10 +53,6 @@ First clone the repo and cd it.
 
 Then run `docker-compose build`
 Now make it up by running `docker-compose up`
-
-
-
-
 
 ## Running the tests
 
