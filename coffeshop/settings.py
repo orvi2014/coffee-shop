@@ -26,7 +26,7 @@ SECRET_KEY = 'i+jrgseho2_#w!%iekxfcdfn)txzu1eg%3-y@v0fcs0bce!%j('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'www.coffeeshopbd.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'coffeeshopbd.herokuapp.com']
 
 
 # Application definition
