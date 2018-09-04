@@ -13,7 +13,7 @@ from order.permissions import UserIsOwnerOrder, IsAdminUser
 from order.serializers import OrderSerializer
 
 from datetime import datetime, time
-
+# Order List Create
 class OrderListCreateAPIView(ListCreateAPIView):
     serializer_class = OrderSerializer
     start=str(datetime.now())
@@ -23,7 +23,7 @@ class OrderListCreateAPIView(ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-
+# Order Detail API
 class OrderDetailAPIView(RetrieveUpdateDestroyAPIView):
     permission_classes = []
     serializer_class = OrderSerializer
