@@ -1,1 +1,1 @@
-web: gunicorn coffeshop.wsgi --log-file -
+gunicorn coffeshop.wsgi:application --preload --workers 1
