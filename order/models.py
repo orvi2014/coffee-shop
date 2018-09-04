@@ -7,8 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class Order(models.Model):
+    id=models.AutoField(primary_key=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
-    cup_count = models.CharField(_("cup_count"), max_length=255)
+    cup_count = models.IntegerField()
     lat = models.CharField(_("lat"), max_length=255)
     long = models.CharField(_("long"), max_length=255)
     date_created = models.DateTimeField(_("Date Created"), auto_now_add=True)
