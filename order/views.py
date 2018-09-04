@@ -29,36 +29,14 @@ class OrderDetailAPIView(RetrieveUpdateDestroyAPIView):
     serializer_class = OrderSerializer
     queryset = Order.objects.all()
     permission_classes = (UserIsOwnerOrder, )
-    error_messages = {
-            'error_msg': _('Update or Delete in 15 mins')
-    }
-    def get_queryset(self):
-        group = self.kwargs["id"]
-        return Order.objects.get(group = group)
-
-    def get_object(self, pk):
-        try:
-            return Order.objects.get(pk=pk)
-        except Order.DoesNotExist:
-            raise Http404
-    def get(self, request, pk, *args, **kwargs):
-        order = self.get_object(pk)
-        serializer = OrderSerializer(order)
-        return Response(serializer.data)
-
-    def post(self,request):
-        end = str(datetime.now())
-        end_ed = datetime.strptime(end, '%Y-%m-%d %H:%M:%S.%f')
-        start_st = datetime.strptime(OrderListCreateAPIView.start, '%Y-%m-%d %H:%M:%S.%f')
-        timedelta= end_ed - start_st
-        minutes=timedelta.seconds % 3600 / 60.0
-        minutes=int(round(minutes))
-        if(minutes>1):
-            order = request.data.get('cup_count', None)
-            serializer = OrderSerializer(order, data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(True)
-            else:
-                raise serializers.ValidationError(self.error_messages['error_msg'])
-                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    end = str(datetime.now())
+    end_ed = datetime.strptime(end, '%Y-%m-%d %H:%M:%S.%f')
+    start_st = datetime.strptime(OrderListCreateAPIView.start, '%Y-%m-%d %H:%M:%S.%f')
+    timedelta= end_ed - start_st
+    minutes=timedelta.seconds % 3600 / 60.0
+    minutes=int(round(minutes))
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+    def put(self, request, *args, **kwargs):
+        if self.minutes<1:
+            return self.update(request, *args, **kwargs)

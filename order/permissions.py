@@ -5,6 +5,8 @@ class UserIsOwnerOrder(BasePermission):
 
     def has_object_permission(self, request, view, order):
         return request.user.id == order.user.id
+    def has_permission(self, request, view):
+        return True
 
 class IsAdminUser(BasePermission):
 
