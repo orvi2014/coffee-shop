@@ -64,4 +64,5 @@ You can check the live version here : http://coffeeshopbd.herokuapp.com
 
 ## API Documentation
 
-Check the [link](https://web.postman.co/collections/5236708-2a3f30fb-6aa2-44f7-b948-b11c12ce7e46?workspace=52559aa6-9fea-423d-8a4c-02eae10c0294)
+From [Here] you can read it. 
+ [link](https://web.postman.co/collections/5236708-2a3f30fb-6aa2-44f7-b948-b11c12ce7e46?workspace=52559aa6-9fea-423d-8a4c-02eae10c0294)
